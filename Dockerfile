@@ -30,7 +30,7 @@ RUN mkdir -p /opt/android-sdk && cd /opt/android-sdk && \
     rm *tools*linux*.zip
 
 # download and install Kotlin compiler
-ENV KOTLIN_VERSION 1.2.30
+ENV KOTLIN_VERSION 1.2.61
 RUN cd /opt && \
     wget -q https://github.com/JetBrains/kotlin/releases/download/v${KOTLIN_VERSION}/kotlin-compiler-${KOTLIN_VERSION}.zip && \
     unzip *kotlin*.zip && \
