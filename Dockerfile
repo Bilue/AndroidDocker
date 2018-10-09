@@ -25,7 +25,7 @@ RUN dpkg --add-architecture i386 && \
 RUN gem install fastlane -NV --no-document
 
 # download and install Android SDK
-ENV ANDROID_SDK_VERSION 3859397
+ENV ANDROID_SDK_VERSION 4333796
 RUN mkdir -p /opt/android-sdk && cd /opt/android-sdk && \
     wget -q https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_VERSION}.zip && \
     unzip *tools*linux*.zip && \
