@@ -49,3 +49,6 @@ ENV LANG=en_US.UTF-8
 ADD license_accepter.sh /opt/
 RUN chmod 771 /opt/license_accepter.sh \
 && /opt/license_accepter.sh $ANDROID_HOME
+
+# install sudo 
+RUN set -ex && apk --no-cache add sudo
