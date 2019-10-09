@@ -21,7 +21,7 @@ ls -l
 docker build -t android-kotlin .
 ```
 
-3. Login to Docker Hub
+3. Login to Docker Hub - username is bilueandroid. Get password from 1Password.
 ```
 docker login
 ```
