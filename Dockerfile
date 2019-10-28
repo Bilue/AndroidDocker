@@ -30,6 +30,7 @@ RUN make -C /ruby-install-0.7.0/ install
 RUN ruby-install ruby 2.6.5
 
 RUN /opt/rubies/ruby-2.6.5/bin/gem install fastlane -NV --no-document
+RUN /opt/rubies/ruby-2.6.5/bin/gem install bundler
 
 # download and install Android SDK
 ENV ANDROID_SDK_VERSION 4333796
