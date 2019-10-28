@@ -21,9 +21,15 @@ RUN dpkg --add-architecture i386 && \
     apt-get install -y --no-install-recommends openjdk-8-jdk && \
     apt-get install -y git wget zip && \
     apt-get install -y curl && \
-    apt-get install -y ruby-full build-essential dh-autoreconf
+    apt-get install -y make
 
-RUN gem install fastlane -NV --no-document
+# update ruby
+RUN wget -O ruby-install-0.7.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.7.0.tar.gz
+RUN tar -xzvf ruby-install-0.7.0.tar.gz
+RUN make -C /ruby-install-0.7.0/ install
+RUN ruby-install ruby 2.6.5
+
+RUN /opt/rubies/ruby-2.6.5/bin/gem install fastlane -NV --no-document
 
 # download and install Android SDK
 ENV ANDROID_SDK_VERSION 4333796
