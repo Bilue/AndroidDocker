@@ -18,7 +18,7 @@ LABEL maintainer "android@bilue.com.au"
 RUN dpkg --add-architecture i386 && \
     apt-get update -y && \
     apt-get install -y libncurses5:i386 libc6:i386 libstdc++6:i386 lib32gcc1 lib32ncurses5 lib32z1 zlib1g:i386 && \
-    apt-get install -y --no-install-recommends openjdk-8-jdk && \
+    apt-get install -y --no-install-recommends openjdk-11-jdk && \
     apt-get install -y git wget zip && \
     apt-get install -y curl && \
     apt-get install -y make
@@ -43,9 +43,9 @@ RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
     rm *tools*linux*.zip
 
 # set the environment variables
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64
 ENV PATH ${PATH}:${GRADLE_HOME}/bin:${KOTLIN_HOME}/bin:${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools/bin
-ENV _JAVA_OPTIONS -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap
+ENV _JAVA_OPTIONS -XX:+UnlockExperimentalVMOptions -XX:+UseContainerSupport
 
 # Sets UTF-8 english as the default locale -- necessary for some Java processor in Android (jetifier for example)
 RUN apt-get install -y locales
